@@ -3,15 +3,15 @@ description: Publish Ansible role to Galaxy
 author: Robert de Bock <robert@meinit.nl>
 
 inputs:
-  galaxy_api_token:
-    description: Your personal Galaxy token found under Galaxy -> Your Profile -> Preferences -> API Key
+  galaxy_api_key:
+    description: Your personal Galaxy key found under Galaxy -> Your Profile -> Preferences -> API Key
     required: true
  
 runs:
   using: docker
   image: 'docker://robertdebock/github-action-galaxy'
   env:
-    galaxy_api_token: ${{ inputs.namespace }}
+    galaxy_api_key: ${{ inputs.galaxy_api_key }}
 
 branding:
   icon: play  

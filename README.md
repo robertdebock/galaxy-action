@@ -42,5 +42,5 @@ jobs:
       - name: galaxy
         uses: robertdebock/galaxy-action@master
         with:
-          galaxy_api_token: ${{ secrets.galaxy_api_token }}
+          galaxy_api_key: ${{ secrets.galaxy_api_key }}
 ```
