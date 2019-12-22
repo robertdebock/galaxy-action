@@ -30,6 +30,8 @@ The API Key for your personal Galaxy account. Found under https://galaxy.ansible
 
 ```yaml
 ---
+name: GitHub Action
+
 on:
   - push
 
@@ -40,7 +42,38 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
       - name: galaxy
-        uses: robertdebock/galaxy-action@master
+        uses: robertdebock/galaxy-action@1.0.0
+        with:
+          galaxy_api_key: ${{ secrets.galaxy_api_key }}
+```
+
+Here is a another example that uses molecule to test the role and this Galaxy action to release:
+
+```yaml
+name: GitHub Action
+
+on:
+  - push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          path: "${{ github.repository }}"
+      - name: molecule
+        uses: robertdebock/molecule-action@1.0.0
+        with:
+          image: ${{ matrix.image }}
+  release:
+    needs:
+      - test
+    runs-on: ubuntu-latest
+    steps:
+      - name: galaxy
+        uses: robertdebock/galaxy-action@1.0.0
         with:
           galaxy_api_key: ${{ secrets.galaxy_api_key }}
 ```
