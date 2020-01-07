@@ -1,4 +1,4 @@
-name: Galaxy action
+name: Publish Ansible role to Galaxy
 description: Publish Ansible role to Galaxy
 author: Robert de Bock <robert@meinit.nl>
 
