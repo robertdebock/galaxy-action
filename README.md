@@ -42,7 +42,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
       - name: galaxy
-        uses: robertdebock/galaxy-action@1.0.0
+        uses: robertdebock/galaxy-action@1.0.1
         with:
           galaxy_api_key: ${{ secrets.galaxy_api_key }}
 ```
@@ -64,7 +64,7 @@ jobs:
         with:
           path: "${{ github.repository }}"
       - name: molecule
-        uses: robertdebock/molecule-action@1.0.0
+        uses: robertdebock/molecule-action@1.1.3
         with:
           image: ${{ matrix.image }}
   release:
@@ -73,7 +73,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: galaxy
-        uses: robertdebock/galaxy-action@1.0.0
+        uses: robertdebock/galaxy-action@1.0..
         with:
           galaxy_api_key: ${{ secrets.galaxy_api_key }}
 ```
