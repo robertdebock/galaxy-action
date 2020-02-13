@@ -64,16 +64,14 @@ jobs:
         with:
           path: "${{ github.repository }}"
       - name: molecule
-        uses: robertdebock/molecule-action@1.1.3
-        with:
-          image: ${{ matrix.image }}
+        uses: robertdebock/molecule-action@1.2.4
   release:
     needs:
       - test
     runs-on: ubuntu-latest
     steps:
       - name: galaxy
-        uses: robertdebock/galaxy-action@1.0..
+        uses: robertdebock/galaxy-action@1.0.3
         with:
           galaxy_api_key: ${{ secrets.galaxy_api_key }}
 ```
