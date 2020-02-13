@@ -42,7 +42,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
       - name: galaxy
-        uses: robertdebock/galaxy-action@1.0.2
+        uses: robertdebock/galaxy-action@1.0.3
         with:
           galaxy_api_key: ${{ secrets.galaxy_api_key }}
 ```
