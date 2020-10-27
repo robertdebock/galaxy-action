@@ -26,6 +26,10 @@ This action expects the following (default Ansible role) structure:
 
 The API Key for your personal Galaxy account. Found under https://galaxy.ansible.com/me/preferences
 
+### `path`
+
+For repositories that have multiple roles, you can specify a (relative) path to go into before releasing the role. Defaults to `./`. An example value could be `my_role`.
+
 ## Example usage
 
 ```yaml
@@ -42,7 +46,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
       - name: galaxy
-        uses: robertdebock/galaxy-action@1.0.3
+        uses: robertdebock/galaxy-action@1.0.4
         with:
           galaxy_api_key: ${{ secrets.galaxy_api_key }}
 ```
@@ -64,14 +68,36 @@ jobs:
         with:
           path: "${{ github.repository }}"
       - name: molecule
-        uses: robertdebock/molecule-action@1.2.4
+        uses: robertdebock/molecule-action@2.6.3
   release:
     needs:
       - test
     runs-on: ubuntu-latest
     steps:
       - name: galaxy
-        uses: robertdebock/galaxy-action@1.0.3
+        uses: robertdebock/galaxy-action@1.0.4
         with:
           galaxy_api_key: ${{ secrets.galaxy_api_key }}
+```
+
+When you have multiple roles in your repository, you can release one specific role by specifying a `path`:
+
+```yaml
+---
+name: GitHub Action
+
+on:
+  - push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: galaxy
+        uses: robertdebock/galaxy-action@1.0.4
+        with:
+          galaxy_api_key: ${{ secrets.galaxy_api_key }}
+          path: my_role
 ```

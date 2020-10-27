@@ -6,6 +6,10 @@ inputs:
   galaxy_api_key:
     description: Your personal Galaxy key found under Galaxy -> Your Profile -> Preferences -> API Key
     required: true
+  path:
+    description: The (relative) location of your role.
+    required: false
+    default: "./"
  
 runs:
   using: docker
