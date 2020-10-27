@@ -46,7 +46,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
       - name: galaxy
-        uses: robertdebock/galaxy-action@1.0.4
+        uses: robertdebock/galaxy-action@1.1.0
         with:
           galaxy_api_key: ${{ secrets.galaxy_api_key }}
 ```
@@ -75,7 +75,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: galaxy
-        uses: robertdebock/galaxy-action@1.0.4
+        uses: robertdebock/galaxy-action@1.1.0
         with:
           galaxy_api_key: ${{ secrets.galaxy_api_key }}
 ```
@@ -96,7 +96,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
       - name: galaxy
-        uses: robertdebock/galaxy-action@1.0.4
+        uses: robertdebock/galaxy-action@1.1.0
         with:
           galaxy_api_key: ${{ secrets.galaxy_api_key }}
           path: my_role
