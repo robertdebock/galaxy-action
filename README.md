@@ -24,7 +24,7 @@ This action expects the following (default Ansible role) structure:
 
 ### `galaxy_api_key`
 
-The API Key for your personal Galaxy account. Found under https://galaxy.ansible.com/me/preferences
+The API Key for your personal Galaxy account. Found under https://galaxy.ansible.com/me/preferences . You can store this key in GitHub's Settings -> Secrets -> New repository secret. (Name: galaxy_api_key, Value: The token you copied from Galaxy.)
 
 ### `path`
 
