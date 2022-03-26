@@ -17,7 +17,7 @@ inputs:
  
 runs:
   using: docker
-  image: 'docker://t2d2/github-action-galaxy'
+  image: 'docker://robertdebock/github-action-galaxy'
   env:
     galaxy_api_key: ${{ inputs.galaxy_api_key }}
     git_branch: ${{ inputs.git_branch }}
