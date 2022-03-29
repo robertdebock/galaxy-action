@@ -30,6 +30,10 @@ The API Key for your personal Galaxy account. Found under https://galaxy.ansible
 
 For repositories that have multiple roles, you can specify a (relative) path to go into before releasing the role. Defaults to `./`. An example value could be `my_role`.
 
+### `git_branch`
+
+You may specify a specific branch to push. The default is `master`.
+
 ## Example usage
 
 ```yaml
@@ -46,7 +50,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
       - name: galaxy
-        uses: robertdebock/galaxy-action@1.1.0
+        uses: robertdebock/galaxy-action@1.2.0
         with:
           galaxy_api_key: ${{ secrets.galaxy_api_key }}
 ```
@@ -68,14 +72,14 @@ jobs:
         with:
           path: "${{ github.repository }}"
       - name: molecule
-        uses: robertdebock/molecule-action@2.6.3
+        uses: robertdebock/molecule-action@4.0.7
   release:
     needs:
       - test
     runs-on: ubuntu-latest
     steps:
       - name: galaxy
-        uses: robertdebock/galaxy-action@1.1.0
+        uses: robertdebock/galaxy-action@1.2.0
         with:
           galaxy_api_key: ${{ secrets.galaxy_api_key }}
 ```
@@ -96,8 +100,9 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
       - name: galaxy
-        uses: robertdebock/galaxy-action@1.1.0
+        uses: robertdebock/galaxy-action@1.2.0
         with:
           galaxy_api_key: ${{ secrets.galaxy_api_key }}
           path: my_role
+          git_branch: my_branch
 ```
