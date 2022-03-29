@@ -6,6 +6,10 @@ inputs:
   galaxy_api_key:
     description: Your personal Galaxy key found under Galaxy -> Your Profile -> Preferences -> API Key
     required: true
+  git_branch:
+    description: The git branch you want to upload.
+    required: false
+    default: "master"
   path:
     description: The (relative) location of your role.
     required: false
@@ -16,6 +20,7 @@ runs:
   image: 'docker://robertdebock/github-action-galaxy'
   env:
     galaxy_api_key: ${{ inputs.galaxy_api_key }}
+    git_branch: ${{ inputs.git_branch }}
 
 branding:
   icon: play  
