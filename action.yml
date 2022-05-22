@@ -21,6 +21,7 @@ runs:
   env:
     galaxy_api_key: ${{ inputs.galaxy_api_key }}
     git_branch: ${{ inputs.git_branch }}
+    path: ${{ inputs.path }}
 
 branding:
   icon: play  
